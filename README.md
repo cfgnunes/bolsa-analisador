@@ -6,7 +6,7 @@ Programa para análise de compra ou venda de títulos na Bolsa de Valores basead
 
 ## Apoie esse projeto! 💵
 
-Você pode realizar doações de qualquer banco para minha chave Pix:
+Você pode realizar doações de qualquer banco para a chave Pix:
 
 **565a756e-b163-47a8-8414-efa230057600**
 
