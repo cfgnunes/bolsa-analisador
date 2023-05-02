@@ -63,14 +63,14 @@ O programa recomenda a venda se, pelo menos, um dos critérios abaixo for verdad
 
 O programa recomenda a compra se todos os critérios abaixo forem verdadeiros:
 
-- P/VP < 1.1
+- P/VP < 1
 - Dividend Yield > 7
 - DY CAGR > 4
 - Valor CAGR > 0
 
 O programa recomenda a venda se, pelo menos, um dos critérios abaixo for verdadeiro:
 
-- P/VP > 1
+- P/VP > 1.1
 - Dividend Yield < 5
 
 ## Contribuindo
