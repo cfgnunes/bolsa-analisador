@@ -1,0 +1,12 @@
+name: bolsa-analisador-env
+
+channels:
+  - defaults
+
+dependencies:
+  - python=>3.6
+  - pip
+  - pip:
+      - beautifulsoup4
+      - pandas
+      - requests
