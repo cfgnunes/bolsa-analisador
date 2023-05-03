@@ -48,16 +48,18 @@ O programa recomenda a compra se todos os critérios abaixo forem verdadeiros:
 
 - P/VP < 2
 - Dividend Yield > 6
-- P/L < 6.5
+- P/L < 7
 - ROE > 13%
-- Dívida líquida / EBITDA < 3
+- Dívida líquida / EBITDA < 2
+- CAGR Lucros 5 anos >= 0%
 
 O programa recomenda a venda se, pelo menos, um dos critérios abaixo for verdadeiro:
 
 - P/VP < 0 ou > 10
-- P/L < 0 ou > 15
-- ROE < 3
+- P/L < 0 ou > 20
+- ROE < 5%
 - Dívida líquida / EBITDA > 4
+- CAGR Lucros 5 anos < 0%
 
 ### Fundos imobiliários
 

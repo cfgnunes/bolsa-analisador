@@ -26,7 +26,8 @@ class AnalisadorAcao(Analisador):
             "Valorização (12m)": float,
             "Free Float": float,
             "Dív. líquida/PL": float,
-            "Dív. líquida/EBITDA": float
+            "Dív. líquida/EBITDA": float,
+            "CAGR Lucros 5 anos": float
         }
         self._dados = self._dados.astype(col_types)
         self._dados["Papel"] = self._dados.index
@@ -36,21 +37,23 @@ class AnalisadorAcao(Analisador):
         self._dados["Compra"] = 0
         self._dados["Compra"] += self._dados["P/VP"].between(0, 2)
         self._dados["Compra"] += self._dados["Dividend Yield"].gt(6)
-        self._dados["Compra"] += self._dados["P/L"].between(0, 6.5)
+        self._dados["Compra"] += self._dados["P/L"].between(0, 7)
         self._dados["Compra"] += self._dados["ROE"].gt(13)
-        self._dados["Compra"] += self._dados["Dív. líquida/EBITDA"].lt(3)
+        self._dados["Compra"] += self._dados["Dív. líquida/EBITDA"].lt(2)
+        self._dados["Compra"] += self._dados["CAGR Lucros 5 anos"].ge(0)
 
         # Critérios para venda
         self._dados["Venda"] = 0
         self._dados["Venda"] += self._dados["P/VP"].gt(10)
-        self._dados["Venda"] += self._dados["P/L"].gt(15)
+        self._dados["Venda"] += self._dados["P/L"].gt(20)
         self._dados["Venda"] += self._dados["P/VP"].lt(0)
         self._dados["Venda"] += self._dados["P/L"].lt(0)
-        self._dados["Venda"] += self._dados["ROE"].lt(3)
+        self._dados["Venda"] += self._dados["ROE"].lt(5)
         self._dados["Venda"] += self._dados["Dív. líquida/EBITDA"].gt(4)
+        self._dados["Venda"] += self._dados["CAGR Lucros 5 anos"].lt(0)
 
         # Adiciona a coluna de recomendação
-        self._dados.loc[self._dados["Compra"] == 5, "Rec."] = "Comprar!"
+        self._dados.loc[self._dados["Compra"] == 6, "Rec."] = "Comprar!"
         self._dados.loc[self._dados["Venda"] > 0, "Rec."] = "Vender!"
         self._dados["Rec."] = self._dados["Rec."].fillna("Manter")
 
@@ -66,6 +69,7 @@ class AnalisadorAcao(Analisador):
             "P/L",
             "ROE",
             "Dív. líquida/EBITDA",
+            "CAGR Lucros 5 anos",
             "Rec.",
         ]
         self._dados = \
@@ -76,4 +80,5 @@ class AnalisadorAcao(Analisador):
             "index": "Codigo",
             "Dív. líquida/EBITDA": "D/EBITDA",
             "Dividend Yield": "DY",
+            "CAGR Lucros 5 anos": "CAGR Luc.",
         }, inplace=True)
