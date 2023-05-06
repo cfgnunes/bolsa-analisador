@@ -49,8 +49,8 @@ class AnalisadorAcao(Analisador):
         self._dados["Venda"] += self._dados["P/VP"].lt(0)
         self._dados["Venda"] += self._dados["P/L"].lt(0)
         self._dados["Venda"] += self._dados["ROE"].lt(5)
-        self._dados["Venda"] += self._dados["Dív. líquida/EBITDA"].gt(4)
-        self._dados["Venda"] += self._dados["CAGR Lucros 5 anos"].lt(0)
+        self._dados["Venda"] += self._dados["Dív. líquida/EBITDA"].gt(5)
+        self._dados["Venda"] += self._dados["CAGR Lucros 5 anos"].lt(-4)
 
         # Adiciona a coluna de recomendação
         self._dados.loc[self._dados["Compra"] == 6, "Rec."] = "Comprar!"

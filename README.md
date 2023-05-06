@@ -58,8 +58,8 @@ O programa recomenda a venda se, pelo menos, um dos critérios abaixo for verdad
 - P/VP < 0 ou > 10
 - P/L < 0 ou > 20
 - ROE < 5%
-- Dívida líquida / EBITDA > 4
-- CAGR Lucros 5 anos < 0%
+- Dívida líquida / EBITDA > 5
+- CAGR Lucros 5 anos < -4%
 
 ### Fundos imobiliários
 
