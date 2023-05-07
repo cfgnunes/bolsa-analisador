@@ -1,9 +1,9 @@
-"""Classe AnalisadorFII."""
+"""Classe AnalisadorFIIs."""
 
 from analisador import Analisador
 
 
-class AnalisadorFII(Analisador):
+class AnalisadorFIIs(Analisador):
     """Classe utilizada para analisar compra ou venda de FIIs."""
 
     def _prepara_dados(self):
