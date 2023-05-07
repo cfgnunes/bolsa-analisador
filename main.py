@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Programa para análise de compra ou venda de títulos na Bolsa de Valores."""
 
-from analisador_acao import AnalisadorAcoes
-from analisador_fii import AnalisadorFIIs
+from analisador_acoes import AnalisadorAcoes
+from analisador_fiis import AnalisadorFIIs
 from status_invest import StatusInvest
 
 
