@@ -36,8 +36,8 @@ class AnalisadorAcoes(Analisador):
         # Critérios para compra
         self._dados["Compra"] = 0
         self._dados["Compra"] += self._dados["P/VP"].between(0, 2)
-        self._dados["Compra"] += self._dados["Dividend Yield"].gt(6)
-        self._dados["Compra"] += self._dados["P/L"].between(0, 7)
+        self._dados["Compra"] += self._dados["Dividend Yield"].gt(7)
+        self._dados["Compra"] += self._dados["P/L"].between(0, 6)
         self._dados["Compra"] += self._dados["ROE"].gt(13)
         self._dados["Compra"] += self._dados["Dív. líquida/EBITDA"].lt(2)
         self._dados["Compra"] += self._dados["CAGR Lucros 5 anos"].ge(0)
@@ -51,6 +51,7 @@ class AnalisadorAcoes(Analisador):
         self._dados["Venda"] += self._dados["ROE"].lt(5)
         self._dados["Venda"] += self._dados["Dív. líquida/EBITDA"].gt(5)
         self._dados["Venda"] += self._dados["CAGR Lucros 5 anos"].lt(-4)
+        self._dados["Venda"] += self._dados["Valor atual"].lt(2)
 
         # Adiciona a coluna de recomendação
         self._dados.loc[self._dados["Compra"] == 6, "Rec."] = "Comprar!"
@@ -59,14 +60,15 @@ class AnalisadorAcoes(Analisador):
 
         # Ordena a tabela
         self._dados = self._dados.sort_values(
-            ["Rec.", "P/VP", "Dividend Yield"], ascending=[True, True, True])
+            ["Rec.", "P/L", "Dividend Yield"], ascending=[True, True, True])
 
     def _formata_dados(self):
         # Seleciona apenas algumas colunas para exibir
         colunas_selecionar = [
-            "P/VP",
-            "Dividend Yield",
+            "Valor atual",
             "P/L",
+            "Dividend Yield",
+            "P/VP",
             "ROE",
             "Dív. líquida/EBITDA",
             "CAGR Lucros 5 anos",
@@ -78,6 +80,7 @@ class AnalisadorAcoes(Analisador):
         # Renomeia as colunas
         self._dados.rename(columns={
             "index": "Codigo",
+            "Valor atual": "Preço",
             "Dív. líquida/EBITDA": "D/EBITDA",
             "Dividend Yield": "DY",
             "CAGR Lucros 5 anos": "CAGR Luc.",

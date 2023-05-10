@@ -41,8 +41,9 @@ class AnalisadorFIIs(Analisador):
     def _formata_dados(self):
         # Seleciona apenas algumas colunas para exibir
         colunas_selecionar = [
-            "P/VP",
+            "Valor atual",
             "Dividend Yield",
+            "P/VP",
             "DY CAGR",
             "Valor CAGR",
             "Rec.",
@@ -52,5 +53,6 @@ class AnalisadorFIIs(Analisador):
         # Renomeia as colunas
         self._dados.rename(columns={
             "index": "Codigo",
+            "Valor atual": "Preço",
             "Dividend Yield": "DY",
         }, inplace=True)
